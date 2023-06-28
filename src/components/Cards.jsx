@@ -112,7 +112,7 @@ const Cards = (props) => {
           >
             <div
               style={{
-                backgroundImage: `url("./src/images/yugioh-card-back.png")`,
+                backgroundImage: `url("./images/yugioh-card-back.png")`,
                 backgroundSize: `cover`,
                 backgroundRepeat: "no-repeat",
               }}
