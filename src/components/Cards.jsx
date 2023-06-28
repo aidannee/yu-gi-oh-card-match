@@ -59,15 +59,17 @@ const Cards = (props) => {
             countOfMatchedCards++;
           }
         }
-        if (countOfMatchedCards === cardsCopy.length) {
-          alert("YA WIN");
-        }
+        // if (countOfMatchedCards === cardsCopy.length) {
+        //   alert("YA WIN");
+        // }
 
         if (
           cardsCopy.filter((card) => card.matched === true).length ===
           cardsCopy.length
         ) {
-          alert("YA WIN");
+          setTimeout(() => {
+            alert("YA WIN");
+          }, 500);
         }
 
         // // version 2: map
@@ -102,7 +104,7 @@ const Cards = (props) => {
   return (
     <>
       {" "}
-      <div className="overflow-y-hidden grid grid-cols-4 w-full p-4">
+      <div className="overflow-y-hidden grid grid-cols-4 w-full p-10">
         {cards.map((card, index) => (
           <div
             className={`card ${
@@ -113,7 +115,7 @@ const Cards = (props) => {
             <div
               style={{
                 backgroundImage: `url("./images/yugioh-card-back.png")`,
-                backgroundSize: `cover`,
+                backgroundSize: `contain`,
                 backgroundRepeat: "no-repeat",
               }}
               className="card-side front-side w-20 h-28 shadow-2xl shadow-orange-400/50"
