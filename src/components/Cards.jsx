@@ -1,8 +1,9 @@
 import { data } from "autoprefixer";
 import { useEffect, useState } from "react";
+import { log } from "tone/build/esm/core/util/Debug";
 
 const Cards = (props) => {
-  console.log(props.cards);
+  // console.log(props.cards);
   const [cards, setCards] = useState(
     props.cards.map((c) => {
       return { ...c, comparing: false, matched: false };
@@ -25,8 +26,8 @@ const Cards = (props) => {
     //step 2 - if two cards are ready to be compared...
     const cardsToCompare = cards.filter((card) => card.comparing === true);
     if (cardsToCompare.length === 2) {
-      console.log("there are two to compare!!!", cardsToCompare);
-      console.log(cardsToCompare[0].id === cardsToCompare[1].id);
+      // console.log("there are two to compare!!!", cardsToCompare);
+      // console.log(cardsToCompare[0].id === cardsToCompare[1].id);
       //step 3 - ... compare them
       if (cardsToCompare[0].id === cardsToCompare[1].id) {
         // update somehow the 2 cards that have .comparing:true
@@ -42,9 +43,11 @@ const Cards = (props) => {
         // version 1: for loop
         // step 3.a if they match, update cards - they should be both set to matched:true
         const cardsCopy = [...cards];
+
         for (let i = 0; i < cardsCopy.length; i++) {
           if (cardsCopy[i].id === cardsToCompare[0].id) {
             cardsCopy[i].matched = true;
+            cardsCopy[i].comparing = false;
           }
         }
         setCards(cardsCopy);
