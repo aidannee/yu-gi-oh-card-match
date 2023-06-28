@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card-side {
+  transition: all 0.25s linear;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 5px;
+}
+/* .front-side {
+  background: pink;
+} */
+.back-side {
+  transform: rotateY(180deg);
+}
+.card.comparison .front-side {
+  transform: rotateY(180deg);
+  background: black;
+  border-color: black;
+}
+.card.comparison .back-side {
+  transform: rotateY(0deg);
+}
