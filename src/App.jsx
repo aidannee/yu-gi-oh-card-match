@@ -1,6 +1,6 @@
 import Cards from "./components/Cards";
 import yugiohcollection from "./assets/yugiohcollection.json";
-// console.log(yugiohcollection.data);
+console.log(yugiohcollection.data);
 function randomCard() {
   return Math.floor(Math.random() * yugiohcollection.data.length);
 }
