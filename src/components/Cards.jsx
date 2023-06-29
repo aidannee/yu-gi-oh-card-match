@@ -104,7 +104,7 @@ const Cards = (props) => {
   return (
     <>
       {" "}
-      <div className="overflow-y-hidden grid grid-cols-4 w-full p-10">
+      <div className="grid grid-cols-4 xl:grid-cols-8 w-full p-10">
         {cards.map((card, index) => (
           <div
             className={`card ${
@@ -112,18 +112,14 @@ const Cards = (props) => {
             }`}
             key={index}
           >
-            <div
-              style={{
-                backgroundImage: `url("./images/yugioh-card-back.png")`,
-                backgroundSize: `contain`,
-                backgroundRepeat: "no-repeat",
-              }}
-              className="card-side front-side w-20 h-28 shadow-2xl shadow-orange-400/50"
+            <img
+              src="./images/yugioh-card-back.png"
+              className="card-side front-side w-20 h-28 lg:w-40 lg:h-56 shadow-2xl shadow-orange-400/50"
               onClick={() => handleFlippedCard(index)}
-            ></div>
-            <div className="card-side back-side w-20 h-28">
+            ></img>
+            <div className="card-side back-side w-20 h-28 lg:w-40 lg:h-56 shadow-2xl shadow-orange-400/50">
               <img
-                style={{ borderRadius: "5px" }}
+                style={{ borderRadius: "5px", height: "inherit" }}
                 src={card.card_images[0].image_url}
               />
             </div>

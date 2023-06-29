@@ -28,8 +28,6 @@
 }
 .card.comparison .front-side {
   transform: rotateY(180deg);
-  background: black;
-  border-color: black;
 }
 .card.comparison .back-side {
   transform: rotateY(0deg);
