@@ -11,6 +11,16 @@ const Cards = (props) => {
   );
 
   function handleFlippedCard(index) {
+    let countedTrue = 0;
+    for (let i = 0; i < cards.length; i++) {
+      const card = cards[i];
+      // !-------------- BIG BRAIN MOMENT
+      card.comparing ? countedTrue++ : 0;
+      // !------------------
+    }
+    if (countedTrue === 2) {
+      return;
+    }
     //step 1 - set card comparing true (if not already true or whatever)
     if (!cards[index].comparing && !cards[index].matched) {
       const cardsCopy = [...cards];
@@ -113,12 +123,14 @@ const Cards = (props) => {
             key={index}
           >
             <img
+              draggable="false"
               src="./images/yugioh-card-back.png"
               className="card-side front-side w-20 h-28 lg:w-40 lg:h-56 shadow-2xl shadow-orange-400/50"
               onClick={() => handleFlippedCard(index)}
             ></img>
             <div className="card-side back-side w-20 h-28 lg:w-40 lg:h-56 shadow-2xl shadow-orange-400/50">
               <img
+                draggable="false"
                 style={{ borderRadius: "5px", height: "inherit" }}
                 src={card.card_images[0].image_url}
               />
