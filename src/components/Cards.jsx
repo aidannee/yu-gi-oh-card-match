@@ -57,7 +57,9 @@ const Cards = (props) => {
         for (let i = 0; i < cardsCopy.length; i++) {
           if (cardsCopy[i].id === cardsToCompare[0].id) {
             cardsCopy[i].matched = true;
-            cardsCopy[i].comparing = false;
+            setTimeout(() => {
+              cardsCopy[i].comparing = false;
+            }, 1000);
           }
         }
         setCards(cardsCopy);
