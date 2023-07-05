@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { log } from "tone/build/esm/core/util/Debug";
 
 const Cards = (props) => {
+  const [gameFinsished, setGameFinished] = useState(false);
   // console.log(props.cards);
   const [cards, setCards] = useState(
     props.cards.map((c) => {
@@ -34,7 +35,9 @@ const Cards = (props) => {
   useEffect(() => {
     // console.log(cards);
     //step 2 - if two cards are ready to be compared...
-    const cardsToCompare = cards.filter((card) => card.comparing === true);
+    const cardsToCompare = cards.filter(
+      (card) => card.comparing === true && card.matched === false
+    );
     if (cardsToCompare.length === 2) {
       // console.log("there are two to compare!!!", cardsToCompare);
       // console.log(cardsToCompare[0].id === cardsToCompare[1].id);
@@ -79,9 +82,7 @@ const Cards = (props) => {
           cardsCopy.filter((card) => card.matched === true).length ===
           cardsCopy.length
         ) {
-          setTimeout(() => {
-            alert("YA WIN");
-          }, 500);
+          setGameFinished(true);
         }
 
         // // version 2: map
@@ -115,31 +116,42 @@ const Cards = (props) => {
 
   return (
     <>
-      {" "}
-      <div className="grid grid-cols-4 xl:grid-cols-8 w-full p-10">
-        {cards.map((card, index) => (
-          <div
-            className={`card ${
-              card.comparing || card.matched ? "comparison" : ""
-            }`}
-            key={index}
+      {gameFinsished ? (
+        <>
+          <div className="text-2xl text-white">You have beaten the game!</div>
+          {/* <button
+            className="border border-orange-400"
+            onClick="window.location.reload()"
           >
-            <img
-              draggable="false"
-              src="./images/yugioh-card-back.png"
-              className="card-side front-side w-20 h-28 lg:w-40 lg:h-56 shadow-2xl shadow-orange-400/50"
-              onClick={() => handleFlippedCard(index)}
-            ></img>
-            <div className="card-side back-side w-20 h-28 lg:w-40 lg:h-56 shadow-2xl shadow-orange-400/50">
+            Restart
+          </button> */}
+        </>
+      ) : (
+        <div className="grid grid-cols-4 xl:grid-cols-8 w-full p-10">
+          {cards.map((card, index) => (
+            <div
+              className={`card ${
+                card.comparing || card.matched ? "comparison" : ""
+              }`}
+              key={index}
+            >
               <img
                 draggable="false"
-                style={{ borderRadius: "5px", height: "inherit" }}
-                src={card.card_images[0].image_url}
-              />
+                src="./images/yugioh-card-back.png"
+                className="card-side front-side w-20 h-28 lg:w-40 lg:h-56 shadow-2xl shadow-orange-400/50"
+                onClick={() => handleFlippedCard(index)}
+              ></img>
+              <div className="card-side back-side w-20 h-28 lg:w-40 lg:h-56 shadow-2xl shadow-orange-400/50">
+                <img
+                  draggable="false"
+                  style={{ borderRadius: "5px", height: "inherit" }}
+                  src={card.card_images[0].image_url}
+                />
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </>
   );
 };
