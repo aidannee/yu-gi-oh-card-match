@@ -82,7 +82,9 @@ const Cards = (props) => {
           cardsCopy.filter((card) => card.matched === true).length ===
           cardsCopy.length
         ) {
-          setGameFinished(true);
+          setTimeout(() => {
+            setGameFinished(true);
+          }, 500);
         }
 
         // // version 2: map
@@ -118,13 +120,18 @@ const Cards = (props) => {
     <>
       {gameFinsished ? (
         <>
-          <div className="text-2xl text-white">You have beaten the game!</div>
-          {/* <button
-            className="border border-orange-400"
-            onClick="window.location.reload()"
-          >
-            Restart
-          </button> */}
+          {" "}
+          <span className="flex flex-col self-center m-auto  bg-transparent">
+            <div className="text-2xl text-white bg-transparent">
+              You beat the game!
+            </div>
+            <button
+              className="border text-orange-400 border-orange-400 rounded bg-transparent hover:bg-orange-400 hover:text-black"
+              onClick={() => window.location.reload()}
+            >
+              Duel again!
+            </button>
+          </span>
         </>
       ) : (
         <div className="grid grid-cols-4 xl:grid-cols-8 w-full p-10">
@@ -144,7 +151,11 @@ const Cards = (props) => {
               <div className="card-side back-side w-20 h-28 lg:w-40 lg:h-56 shadow-2xl shadow-orange-400/50">
                 <img
                   draggable="false"
-                  style={{ borderRadius: "5px", height: "inherit" }}
+                  style={{
+                    borderRadius: "5px",
+                    height: "inherit",
+                    width: "inherit",
+                  }}
                   src={card.card_images[0].image_url}
                 />
               </div>

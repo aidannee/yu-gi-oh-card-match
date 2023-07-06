@@ -15,7 +15,6 @@ which npm
 npm install
 ```
 
-
 ### 🚀 Launching the Game
 
 ```bash
