@@ -143,6 +143,7 @@ const Cards = (props) => {
               key={index}
             >
               <img
+                loading="lazy"
                 draggable="false"
                 src="./images/yugioh-card-back.png"
                 className="card-side front-side w-20 h-28 lg:w-40 lg:h-56 shadow-2xl shadow-orange-400/50"
@@ -150,6 +151,7 @@ const Cards = (props) => {
               ></img>
               <div className="card-side back-side w-20 h-28 lg:w-40 lg:h-56 shadow-2xl shadow-orange-400/50">
                 <img
+                  loading="lazy"
                   draggable="false"
                   style={{
                     borderRadius: "5px",
