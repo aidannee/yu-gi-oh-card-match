@@ -104,7 +104,7 @@ const Cards = (props) => {
       }
       setTimeout(() => {
         setCards(cards.map((card) => ({ ...card, comparing: false })));
-      }, 1000);
+      }, 600);
 
       // const cardsCopyAgain = [...cards];
       // for (let index = 0; index < cardsCopyAgain.length; index++) {
@@ -121,12 +121,12 @@ const Cards = (props) => {
       {gameFinsished ? (
         <>
           {" "}
-          <span className="flex flex-col self-center m-auto  bg-transparent">
-            <div className="text-2xl text-white bg-transparent">
+          <span className="flex flex-col self-center m-auto  bg-transparent shadow-2xl shadow-orange-400/50">
+            <div className="text-2xl text-orange-400 bg-transparent">
               You beat the game!
             </div>
             <button
-              className="border text-orange-400 border-orange-400 rounded bg-transparent hover:bg-orange-400 hover:text-black"
+              className="border text-orange-400 border-orange-400 rounded bg-transparent hover:bg-orange-400  hover:text-black"
               onClick={() => window.location.reload()}
             >
               Duel again!
