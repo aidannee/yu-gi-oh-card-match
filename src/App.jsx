@@ -19,7 +19,7 @@ cards.sort(() => Math.random() - 0.5);
 
 function App() {
   return (
-    <div className="flex text-centre h-screen">
+    <div className="flex text-centre h-screen pb-28 md:pb-0">
       {/* <img src={cardImage} alt="" /> */}
       <Cards cards={cards} />
     </div>
