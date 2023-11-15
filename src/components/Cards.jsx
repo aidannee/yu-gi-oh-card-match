@@ -134,7 +134,7 @@ const Cards = (props) => {
           </span>
         </>
       ) : (
-        <div className="grid grid-cols-4 xl:grid-cols-8 w-full p-10">
+        <div className="grid grid-cols-4 md:grid-cols-8 w-full  p-10">
           {cards.map((card, index) => (
             <div
               className={`card ${
@@ -146,10 +146,10 @@ const Cards = (props) => {
                 loading="lazy"
                 draggable="false"
                 src="./images/yugioh-card-back.png"
-                className="card-side front-side w-20 h-28 lg:w-40 lg:h-56 shadow-2xl shadow-orange-400/50"
+                className="card-side front-side w-20 h-28 xl:w-40  xl:h-56 shadow-2xl shadow-orange-400/50"
                 onClick={() => handleFlippedCard(index)}
               ></img>
-              <div className="card-side back-side w-20 h-28 lg:w-40 lg:h-56 shadow-2xl shadow-orange-400/50">
+              <div className="card-side back-side w-20 h-28 xl:w-40 xl:h-56 shadow-2xl shadow-orange-400/50">
                 <img
                   loading="lazy"
                   draggable="false"
