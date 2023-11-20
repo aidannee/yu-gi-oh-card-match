@@ -6,9 +6,7 @@
   margin: 0;
   background-color: #171515;
 }
-/* body {
-  display: flex;
-} */
+
 .card {
   display: flex;
   justify-content: center;
@@ -20,9 +18,7 @@
   backface-visibility: hidden;
   border-radius: 5px;
 }
-/* .front-side {
-  background: pink;
-} */
+
 .back-side {
   transform: rotateY(180deg);
 }
