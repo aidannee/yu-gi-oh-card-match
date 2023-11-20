@@ -40,6 +40,4 @@ The game presents a grid of cards that are flipped by clicking on them. The obje
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 Feel free to contribute or report issues by creating a pull request or raising an issue in the repository!
