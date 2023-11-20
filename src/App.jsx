@@ -4,10 +4,8 @@ console.log(yugiohcollection.data);
 function randomCard() {
   return Math.floor(Math.random() * yugiohcollection.data.length);
 }
-// console.log(randomCard());
 
 const cardImage = yugiohcollection.data[randomCard()].card_images[0].image_url;
-// console.log(cardImage);
 
 const cards = [];
 for (let i = 0; i < 8; i++) {
@@ -20,7 +18,6 @@ cards.sort(() => Math.random() - 0.5);
 function App() {
   return (
     <div className="flex text-centre h-screen pb-28 md:pb-0">
-      {/* <img src={cardImage} alt="" /> */}
       <Cards cards={cards} />
     </div>
   );

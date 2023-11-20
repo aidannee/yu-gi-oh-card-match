@@ -4,7 +4,7 @@ import { log } from "tone/build/esm/core/util/Debug";
 
 const Cards = (props) => {
   const [gameFinsished, setGameFinished] = useState(false);
-  // console.log(props.cards);
+
   const [cards, setCards] = useState(
     props.cards.map((c) => {
       return { ...c, comparing: false, matched: false };
@@ -33,14 +33,11 @@ const Cards = (props) => {
   // we need to actually *wait* for cards to be really updated
   // ( cards is a useState variable, and you can wait for setCards to be finished with useEffect )
   useEffect(() => {
-    // console.log(cards);
     //step 2 - if two cards are ready to be compared...
     const cardsToCompare = cards.filter(
       (card) => card.comparing === true && card.matched === false
     );
     if (cardsToCompare.length === 2) {
-      // console.log("there are two to compare!!!", cardsToCompare);
-      // console.log(cardsToCompare[0].id === cardsToCompare[1].id);
       //step 3 - ... compare them
       if (cardsToCompare[0].id === cardsToCompare[1].id) {
         // update somehow the 2 cards that have .comparing:true
@@ -74,9 +71,6 @@ const Cards = (props) => {
             countOfMatchedCards++;
           }
         }
-        // if (countOfMatchedCards === cardsCopy.length) {
-        //   alert("YA WIN");
-        // }
 
         if (
           cardsCopy.filter((card) => card.matched === true).length ===
@@ -105,14 +99,8 @@ const Cards = (props) => {
       setTimeout(() => {
         setCards(cards.map((card) => ({ ...card, comparing: false })));
       }, 600);
-
-      // const cardsCopyAgain = [...cards];
-      // for (let index = 0; index < cardsCopyAgain.length; index++) {
-      //   cardsCopyAgain[index].comparing = false;
-      // }
-      //   setCards(cardsCopyAgain);
     }
-    // console.table(cards);
+
     // step 4 if there are 2 cards where compared:true, switch them compare:false
   }, [cards]);
 
